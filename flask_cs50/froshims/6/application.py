@@ -1,15 +1,14 @@
 import csv
 from flask import Flask, render_template,request
 
-app=Flask(__name__) #, template_folder="templates")
+app=Flask(__name__) 
 
 students=[]
 
 @app.route("/")
-def index(): # http://0.0.0.0:1234/?name=alice
+def index(): 
     return render_template("index.html")
-    #  name=request.args.get("name", 'somebody')
-    #  return render_template("index.html", name_html=name)
+    
 
 # send email part need to set security settings and set .env for password
 @app.route("/register", methods=["POST"])
@@ -35,5 +34,4 @@ def registered():
     return render_template('registered.html', students=students)
 
 if __name__ == '__main__':
-    #app.run(host='0.0.0.0',port=1234, debug=True)
     app.run(debug=True)
