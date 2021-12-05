@@ -1,0 +1,27 @@
+{% block body %}
+<h1>Register for Frosh IMs</h1>
+<form action='/register' method='post'>
+    <input type="text" name="name" placeholder="Name">
+    <select name="dorm">
+        <option disabled selected value="">Dorm</option>
+        <option value="Apley Court">Apley Court</option>
+        <option value="Canaday">Canaday</option>
+    </select>
+    <input type="submit" value="Register">
+</form>
+
+<script>
+    document.querySelector('form').onsubmit=function(){
+        if (!document.querySelector('input').value){
+            alert('Plz provide ur name.');
+            return false;
+        }
+        else if (!document.querySelector('form').value){
+            alert('Plz provide ur dorm.');
+            return false;
+        }
+        return true;
+    };
+</script>
+
+{% endblock %}
